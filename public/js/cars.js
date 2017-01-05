@@ -32,7 +32,9 @@ function fetchJSON() {
     url: `${baseUrl}/${page}/3`,
     contentType: 'application/json',
     dataType: 'jsonp',
-    success: addCarsToDOM
+    success: function(carsJSON) {
+      addCarsToDOM(carsJSON)
+    }
   })
   page ++
 }
