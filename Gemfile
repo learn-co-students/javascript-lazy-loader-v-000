@@ -7,6 +7,7 @@ gem 'rake'
 gem 'require_all'
 gem 'pry'
 gem 'shotgun'
+gem 'poltergeist'
 
 group :test do
   gem 'rspec'
@@ -14,5 +15,4 @@ group :test do
   gem 'rack-test'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'poltergeist'
 end
