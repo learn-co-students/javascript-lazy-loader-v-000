@@ -7,8 +7,10 @@ Bundler.require(:default, :test)
 
 require 'capybara'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
 require 'rack/test'
+
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 include SpecSupport::Cars
 include SpecSupport::ClickCars
@@ -23,6 +25,5 @@ def app
   Rack::Builder.parse_file('config.ru').first
 end
 
-Capybara.javascript_driver = :poltergeist
 Capybara.current_driver = Capybara.javascript_driver
 Capybara.app = app
