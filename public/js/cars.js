@@ -1,7 +1,7 @@
 "use strict";
 
 var baseUrl = "http://mimeocarlisting.azurewebsites.net/api/cars/";
-var page = "3";
+var page = 3;
 
 function formatCars(carsJSON) {
   var html = '<div class="row">';
