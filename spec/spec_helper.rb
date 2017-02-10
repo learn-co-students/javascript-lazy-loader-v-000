@@ -1,8 +1,6 @@
 require_relative '../config/environment'
 require_relative '02-features/fixtures/spec_support'
 
-# FIXME: Bundler.require should be configured
-# in config/environment
 Bundler.require(:default, :test)
 
 require 'capybara'
