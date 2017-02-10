@@ -28,6 +28,9 @@ function fetchJSON() {
     dataType: 'jsonp',
     success: function(data) {
       addCarsToDOM(data);
+    },
+    error: function(response) {
+      $('body').text("Sorry, there was an error with the request. Please refresh the page.")
     }
   });
 }
