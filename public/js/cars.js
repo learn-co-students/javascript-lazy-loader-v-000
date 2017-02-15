@@ -9,79 +9,80 @@ function formatCars(carsJSON) {
   // to format three cars, each in a div with a class "col-md-4", in a 
   // div with a class "row"
 
+  //var myArray = [];
+  var myCounter = ($("#cars .row .col-md-4").length) + 1;
 
-  // redone version without outside counter.  Fails on identical car;
-  var myArray = [];
-
-  var lastCar = $("#cars .row .col-md-4").last()[0].innerText;
-  var jsonLength = carsJSON.length;
-
-
-  for (var i = 0; i < jsonLength; i++) {
-    
-    var make = carsJSON[i]["Make"];
-    var model = carsJSON[i]["Model"];
-    var year = carsJSON[i]["Year"];
-    if ((lastCar.includes(make)) && (lastCar.includes(model)) && (lastCar.includes(year))) {
-      var counter = i + 1;
-      console.log(lastCar);
-      console.log("they match!");
-      console.log(model);
-      console.log(counter);
-      break;    
-    } 
-  }
-
-
-  if (carsJSON[counter] !== undefined) {
+  if (carsJSON[myCounter] !== undefined) {
     var car1 = {};
-    car1.make = carsJSON[counter]["Make"];
-    car1.model = carsJSON[counter]["Model"];
-    car1.year = carsJSON[counter]["Year"];
-    myArray.push(car1);
+    car1.make = carsJSON[myCounter]["Make"];
+    car1.model = carsJSON[myCounter]["Model"];
+    car1.year = carsJSON[myCounter]["Year"];
+    //myArray.push(car1);
   };
 
-  if (carsJSON[counter + 1] !== undefined) {
+  if (carsJSON[myCounter + 1] !== undefined) {
     var car2 = {};
-    car2.make = carsJSON[counter + 1]["Make"];
-    car2.model = carsJSON[counter + 1]["Model"];
-    car2.year = carsJSON[counter + 1]["Year"];
-    myArray.push(car2);
+    car2.make = carsJSON[myCounter + 1]["Make"];
+    car2.model = carsJSON[myCounter + 1]["Model"];
+    car2.year = carsJSON[myCounter + 1]["Year"];
+    //myArray.push(car2);
   };
 
-  if (carsJSON[counter + 2] !== undefined) {
+  if (carsJSON[myCounter + 2] !== undefined) {
     var car3 = {};
-    car3.make = carsJSON[counter + 2]["Make"];
-    car3.model = carsJSON[counter + 2]["Model"];
-    car3.year = carsJSON[counter + 2]["Year"];
-    myArray.push(car3);
+    car3.make = carsJSON[myCounter + 2]["Make"];
+    car3.model = carsJSON[myCounter + 2]["Model"];
+    car3.year = carsJSON[myCounter + 2]["Year"];
+    //myArray.push(car3);
   };
 
+  var myPageChunk = 
 
-  function concatenatedHTML(myArray) { 
-    var addedHTML = `<div class='row'>`;
-    myArray.forEach(function(car) {    
-     addedHTML = addedHTML.concat(`<div class='col-md-4 car'> <h2> ${car.make}</h2><p><strong>Model:</strong> ${car.model}</p><p><strong>Year:</strong> ${car.year}</p></div>`);
-  });
-    addedHTML = addedHTML.concat(`</div>`);
-    return addedHTML;
-  }  
+  `<div class='row'>
+    <div class='col-md-4 car'> 
+      <h2> ${car1.make}</h2>
+      <p><strong>Model:</strong> ${car1.model}</p>
+      <p><strong>Year:</strong> ${car1.year}</p>
+    </div>
 
+    <div class='col-md-4 car'>
+      <h2> ${car2.make}</h2>
+      <p><strong>Model:</strong> ${car2.model}</p>
+      <p><strong>Year:</strong> ${car2.year}</p>
+    </div>
 
-  //myCounter = myCounter + 3;
-  return concatenatedHTML(myArray); 
+    <div class='col-md-4 car'>
+      <h2> ${car3.make}</h2>
+      <p><strong>Model:</strong> ${car3.model}</p>
+      <p><strong>Year:</strong> ${car3.year}</p>
+    </div>
+  </div>`;
+
+  return myPageChunk;
 
 }
+
+
+
+//   function concatenatedHTML(myArray) { 
+//     var addedHTML = `<div class='row'>`;
+//     myArray.forEach(function(car) {    
+//      addedHTML = addedHTML.concat(`<div class='col-md-4 car'> <h2> ${car.make}</h2><p><strong>Model:</strong> ${car.model}</p><p><strong>Year:</strong> ${car.year}</p></div>`);
+//   });
+//     addedHTML = addedHTML.concat(`</div>`);
+//     return addedHTML;
+//   }  
+//   return concatenatedHTML(myArray); 
+// }
+
 
 function addCarsToDOM(carsJSON) {
   // this function should pass carsJSON to formatCars() and then 
   // add the resulting HTML to the div with an id of "cars"
 
   var carGroup = $("#cars");
-  //var lastCar = $("#cars .row .col-md-4").last();
 
   if (carsJSON) {
-    //console.log(lastCar);
     var myHtml = formatCars(carsJSON);
     carGroup.append(myHtml);
   };
@@ -115,6 +116,3 @@ function fetchJSON(event) {
   });
 }
   
-
-
-//var url = "http://mimeocarlisting.azurewebsites.net/api/cars/"
