@@ -12,7 +12,7 @@ describe('Cars', function() {
       var htmlOne = '<div class="row"><div class="col-md-4 car"><h2>Dodge</h2><p><strong>Model:</strong> Avenger</p><p><strong>Year:</strong> 2013</p></div><div class="col-md-4 car"><h2>Nissan</h2><p><strong>Model:</strong> Maxima</p><p><strong>Year:</strong> 2009</p></div><div class="col-md-4 car"><h2>Subaru</h2><p><strong>Model:</strong> Impreza WRX</p><p><strong>Year:</strong> 2013</p></div></div>';
       var resultOne = formatCars(carsOneJSON);
       expect(resultOne).toEqual(htmlOne);
-      
+  
       var carsTwoJSON = [{"Make":"Acura","Model":"TL","Year":"2012"},{"Make":"Mercury","Model":"Sable","Year":"2008"},{"Make":"Lexus","Model":"ES 250","Year":"2012"}];
       var htmlTwo = '<div class="row"><div class="col-md-4 car"><h2>Acura</h2><p><strong>Model:</strong> TL</p><p><strong>Year:</strong> 2012</p></div><div class="col-md-4 car"><h2>Mercury</h2><p><strong>Model:</strong> Sable</p><p><strong>Year:</strong> 2008</p></div><div class="col-md-4 car"><h2>Lexus</h2><p><strong>Model:</strong> ES 250</p><p><strong>Year:</strong> 2012</p></div></div>';
       var resultTwo = formatCars(carsTwoJSON);
